@@ -1,5 +1,11 @@
-# When to use class methods and when to use static methods ?
+#--------------------------------------------------------------------#
+# Help program.
+# Created by: Jim - https://www.youtube.com/watch?v=XCgWYx-lGl8
+# Changed by: Thiago Piovesan
+#--------------------------------------------------------------------#
 
+# When to use class methods and when to use static methods ?
+#--------------------------------------------------------------------#
 class Item:
     @staticmethod
     def is_integer():
@@ -20,9 +26,10 @@ class Item:
 # THE ONLY DIFFERENCE BETWEEN THOSE:
 # Static methods are not passing the object reference as the first argument in the background!
 
-
+#--------------------------------------------------------------------#
 # NOTE: However, those could be also called from instances.
 
 item1 = Item()
 item1.is_integer()
 item1.instantiate_from_something()
+#--------------------------------------------------------------------#

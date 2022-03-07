@@ -33,17 +33,47 @@ class Item:
     # Function to apply discount
     def apply_discount(self) -> None:
         self.price = self.price * self.pay_rate
+        
+#--------------------------------------------------------------------#         
+    # Instantiating objects from csv file:
+    # How this method is going to instance, it can't be acess by the instance
+    # It can only be access from the class level, and it's why we call it by Class method
+    @classmethod # --> decorators changed the behavior the function we are calling.
+    def instantiate_from_csv(cls) -> None:
+        with open("04 - Class vs Static Methods/codesnippets/items.csv", 'r') as f:
+            reader = csv.DictReader(f)
+            items = list(reader)
+        
+        # Instantiating the objects:
+        for item in items:
+            Item(
+                name = item.get('name'),
+                price = float(item.get('price')),
+                quantity = int(item.get('quantity')),
+            )
+#--------------------------------------------------------------------#         
           
+    # Static methods has some logical conection to an class
+    # Like check if an value is an int or a float...
+    @staticmethod # like isolated functions
+    def is_integer(num):
+        # We will count out the floats that are point zero
+        # For i.e: 5.0, 10.0 ...
+        if isinstance(num, float):
+            # Count out the floats that are point zero
+            return num.is_integer()
+        elif isinstance(num, int):
+            return True
+        else:
+            return False
+            
+#--------------------------------------------------------------------#       
     # Imprimir itens:
     def __repr__(self) -> str:
         return f"Item('{self.name}', {self.price}, {self.quantity})"
 #--------------------------------------------------------------------#
 
-item1 = Item("Phone", 100, 3)
-item2 = Item("Laptop", 2000, 2)
-item3 = Item("Cable", 5, 10)
-item4 = Item("Mouse", 60, 2)
-item5 = Item("Keyboard", 75, 5)
+print(Item.is_integer(7))
 
-print(Item.all)
-#--------------------------------------------------------------------#
+# Item.instantiate_from_csv()
+# print(Item.all)
