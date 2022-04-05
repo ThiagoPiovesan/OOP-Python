@@ -68,7 +68,7 @@ class Item:
             return False
             
 #--------------------------------------------------------------------#       
-    # Imprimir itens:
+    # Print itens:
     def __repr__(self) -> str:
         return f"Item('{self.name}', {self.price}, {self.quantity})"
 #--------------------------------------------------------------------#

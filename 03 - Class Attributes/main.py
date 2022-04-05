@@ -30,7 +30,7 @@ class Item:
     def apply_discount(self) -> None:
         self.price = self.price * self.pay_rate
           
-    # Imprimir itens:
+    # Print itens:
     def __repr__(self) -> str:
         return f"Item('{self.name}', {self.price}, {self.quantity})"
 #--------------------------------------------------------------------#
